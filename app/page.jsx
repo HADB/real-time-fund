@@ -4185,10 +4185,10 @@ export default function HomePage() {
                   <div className={viewMode === 'card' ? 'grid col-12' : ''} style={viewMode === 'card' ? { gridColumn: 'span 12', gap: 16 } : {}}>
                     {viewMode === 'list' && (
                       <div className="table-header-row">
-                        <div className="table-header-cell">基金名称</div>
-                        <div className="table-header-cell text-right">净值/估值</div>
-                        <div className="table-header-cell text-right">涨跌幅</div>
-                        <div className="table-header-cell text-right">估值时间</div>
+                        <div className="table-header-cell text-left">基金名称</div>
+                        <div className="table-header-cell text-center">净值/估值</div>
+                        <div className="table-header-cell text-center">涨跌幅</div>
+                        <div className="table-header-cell text-center">估值时间</div>
                         <div className="table-header-cell text-right">持仓金额</div>
                         <div className="table-header-cell text-right">当日盈亏</div>
                         <div className="table-header-cell text-right">持有收益</div>
@@ -4314,11 +4314,11 @@ export default function HomePage() {
                                     // 如果涨跌幅列显示（即非交易时段或今日净值已更新），则显示单位净值和真实涨跌幅
                                     return (
                                       <>
-                                        <div className="table-cell text-right value-cell">
-                                          <span style={{ fontWeight: 700 }}>{f.dwjz ?? '—'}</span>
+                                        <div className="table-cell text-center value-cell">
+                                          <span>{f.dwjz ?? '—'}</span>
                                         </div>
-                                        <div className="table-cell text-right change-cell">
-                                          <span className={f.zzl > 0 ? 'up' : f.zzl < 0 ? 'down' : ''} style={{ fontWeight: 700 }}>
+                                        <div className="table-cell text-center change-cell">
+                                          <span className={f.zzl > 0 ? 'up' : f.zzl < 0 ? 'down' : ''}>
                                             {f.zzl !== undefined ? `${f.zzl > 0 ? '+' : ''}${Number(f.zzl).toFixed(2)}%` : ''}
                                           </span>
                                         </div>
@@ -4330,11 +4330,11 @@ export default function HomePage() {
                                     if (f.noValuation) {
                                       return (
                                         <>
-                                          <div className="table-cell text-right value-cell">
-                                            <span style={{ fontWeight: 700 }}>{f.dwjz ?? '—'}</span>
+                                          <div className="table-cell text-center value-cell">
+                                            <span>{f.dwjz ?? '—'}</span>
                                           </div>
-                                          <div className="table-cell text-right change-cell">
-                                            <span className={f.zzl > 0 ? 'up' : f.zzl < 0 ? 'down' : ''} style={{ fontWeight: 700 }}>
+                                          <div className="table-cell text-center change-cell">
+                                            <span className={f.zzl > 0 ? 'up' : f.zzl < 0 ? 'down' : ''}>
                                               {f.zzl !== undefined && f.zzl !== null ? `${f.zzl > 0 ? '+' : ''}${Number(f.zzl).toFixed(2)}%` : '—'}
                                             </span>
                                           </div>
@@ -4343,11 +4343,11 @@ export default function HomePage() {
                                     }
                                     return (
                                       <>
-                                        <div className="table-cell text-right value-cell">
-                                          <span style={{ fontWeight: 700 }}>{f.estPricedCoverage > 0.05 ? f.estGsz.toFixed(4) : (f.gsz ?? '—')}</span>
+                                        <div className="table-cell text-center value-cell">
+                                          <span>{f.estPricedCoverage > 0.05 ? f.estGsz.toFixed(4) : (f.gsz ?? '—')}</span>
                                         </div>
-                                        <div className="table-cell text-right change-cell">
-                                          <span className={f.estPricedCoverage > 0.05 ? (f.estGszzl > 0 ? 'up' : f.estGszzl < 0 ? 'down' : '') : (Number(f.gszzl) > 0 ? 'up' : Number(f.gszzl) < 0 ? 'down' : '')} style={{ fontWeight: 700 }}>
+                                        <div className="table-cell text-center change-cell">
+                                          <span className={f.estPricedCoverage > 0.05 ? (f.estGszzl > 0 ? 'up' : f.estGszzl < 0 ? 'down' : '') : (Number(f.gszzl) > 0 ? 'up' : Number(f.gszzl) < 0 ? 'down' : '')}>
                                             {f.estPricedCoverage > 0.05 ? `${f.estGszzl > 0 ? '+' : ''}${f.estGszzl.toFixed(2)}%` : (typeof f.gszzl === 'number' ? `${f.gszzl > 0 ? '+' : ''}${f.gszzl.toFixed(2)}%` : f.gszzl ?? '—')}
                                           </span>
                                         </div>
@@ -4355,7 +4355,7 @@ export default function HomePage() {
                                     );
                                   }
                                 })()}
-                                <div className="table-cell text-right time-cell">
+                                <div className="table-cell text-center time-cell">
                                   <span className="muted" style={{ fontSize: '12px' }}>{f.noValuation ? (f.jzrq || '-') : (f.gztime || f.time || '-')}</span>
                                 </div>
                                 {!isMobile && (() => {
@@ -4381,7 +4381,7 @@ export default function HomePage() {
                                       title="点击设置持仓"
                                       onClick={(e) => { e.stopPropagation(); setActionModal({ open: true, fund: f }); }}
                                     >
-                                      <span style={{ fontWeight: 700, marginRight: 6 }}>¥{amount.toFixed(2)}</span>
+                                      <span style={{ marginRight: 6 }}>¥{amount.toFixed(2)}</span>
                                       <button
                                         className="icon-button"
                                         onClick={(e) => { e.stopPropagation(); setActionModal({ open: true, fund: f }); }}
@@ -4403,7 +4403,6 @@ export default function HomePage() {
                                     <div className="table-cell text-right profit-cell">
                                       <span
                                         className={hasProfit ? (profitValue > 0 ? 'up' : profitValue < 0 ? 'down' : '') : 'muted'}
-                                        style={{ fontWeight: 700 }}
                                       >
                                         {hasProfit
                                           ? `${profitValue > 0 ? '+' : profitValue < 0 ? '-' : ''}¥${Math.abs(profitValue).toFixed(2)}`
@@ -4437,7 +4436,7 @@ export default function HomePage() {
                                       }}
                                       style={{ cursor: hasTotal ? 'pointer' : 'default' }}
                                     >
-                                      <span className={cls} style={{ fontWeight: 700 }}>{formatted}</span>
+                                      <span className={cls}>{formatted}</span>
                                     </div>
                                   );
                                 })()}

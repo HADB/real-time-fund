@@ -24,10 +24,11 @@ body {
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   background: radial-gradient(1200px 600px at 10% -10%, rgba(96, 165, 250, 0.15), transparent 40%), radial-gradient(1000px 500px at 90% 0%, rgba(34, 211, 238, 0.12), transparent 45%), var(--bg);
   color: var(--text);
+  font-size: 14px;
 }
 
 .container {
-  max-width: 1120px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 24px;
 }
@@ -485,7 +486,7 @@ input[type="number"] {
 
 .table-row {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1.2fr 1.2fr 1.2fr 60px;
+  grid-template-columns: 1fr 100px 100px 120px 160px 100px 100px 60px;
   align-items: center;
   gap: 12px;
   padding: 12px 24px !important;
@@ -503,7 +504,7 @@ input[type="number"] {
 
 .table-header-row {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1.2fr 1.2fr 1.2fr 60px;
+  grid-template-columns: 1fr 100px 100px 120px 160px 100px 100px 60px;
   gap: 12px;
   padding: 16px 24px;
   background: rgba(255, 255, 255, 0.05);
@@ -543,8 +544,7 @@ input[type="number"] {
 }
 
 .name-text {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 12px;
   white-space: normal;
   word-break: break-all;
   line-height: 1.4;
