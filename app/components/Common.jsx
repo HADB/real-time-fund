@@ -280,7 +280,7 @@ export function Stat({ label, value, delta }) {
   return (
     <div className="stat" style={{ flexDirection: 'column', gap: 4, minWidth: 0 }}>
       <span className="label" style={{ fontSize: '11px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{label}</span>
-      <span className={`value ${dir}`} style={{ fontSize: '15px', lineHeight: 1.2, whiteSpace: 'nowrap' }}>{value}</span>
+      <span className={`value ${dir}`} style={{ fontSize: '14px', lineHeight: 1.2, whiteSpace: 'nowrap' }}>{value}</span>
     </div>
   );
 }
